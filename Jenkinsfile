@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         githubCredential = 'GITHUB'
-        SONAR_NODEJS_EXECUTABLE = '/usr/bin/nodejs'
     }
 
     stages {
@@ -12,6 +11,15 @@ pipeline {
                 git branch: 'master',
                 credentialsId: githubCredential,
                 url: 'https://github.com/nikhil-k-cg/flask_application.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image
+                    sh 'docker build -t $DOCKER_IMAGE:$BUILD_NUMBER .'
+                }
             }
         }
 
