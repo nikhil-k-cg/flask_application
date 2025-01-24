@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         githubCredential = 'GITHUB'
+        SONAR_NODEJS_EXECUTABLE = '/usr/bin/nodejs'
     }
 
     stages {
