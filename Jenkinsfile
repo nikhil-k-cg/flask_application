@@ -38,6 +38,7 @@ pipeline {
                         echo "Container ${CONTAINER_NAME} is running. Stopping it now..."
                         // Stop the container
                         sh "docker stop ${CONTAINER_NAME}"
+                        sh "docker rm ${CONTAINER_NAME}"
                     } else {
                         echo "Container ${CONTAINER_NAME} is not running."
                     }
