@@ -2,14 +2,9 @@ name: Python Linting
 
 on:
   push:
-    paths:
-      - '**/*.py'
     branches:
       - '*'
-      #- '!master'
   pull_request:
-    paths:
-      - '**/*.py'
     branches:
       - master
   
