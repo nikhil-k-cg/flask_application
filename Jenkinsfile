@@ -1,11 +1,16 @@
 pipeline {
     agent any
+
+    environment {
+        githubCredential = 'GITHUB'
+    }
+
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'master',
                 credentialsId: githubCredential,
-                url: 'https://github.com/nikhil-k-cg/jenkins_test.git'
+                url: 'https://github.com/nikhil-k-cg/flask_application.git'
             }
         }
 
